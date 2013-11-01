@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-	padding-top: 70px; 
+  padding-top: 60px; 
 }
 
 /* miscellaneous */
@@ -11,4 +11,62 @@ body {
   float: left;
   width: 100%;
   margin-top: 45px;  
+}
+
+/* Common styles for all types */
+.bs-callout {
+  /*position: relative;*/
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #eee;
+  /*border-width: 1px 1px 1px 10px;*/
+  h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  .highlight {
+    /*background-color: #fff;*/
+  }
+}
+
+/* Variations */
+.bs-callout-danger {
+  background-color: #fdf7f7;
+  border-color: #b94a48;
+}
+.bs-callout-danger h4 {
+  color: #b94a48;
+}
+.bs-callout-warning {
+  background-color: #faf8f0;
+  border-color: #c09853;
+}
+.bs-callout-warning h4 {
+  color: #c09853;
+}
+.bs-callout-info {
+  background-color: #f4f8fa;
+  border-color: #3a87ad;
+}
+.bs-callout-info h4 {
+  color: #3a87ad;
+}
+
+.bs-callout-success {
+  background-color: #def2de;
+  border-color: #356635;
+}
+.bs-callout-success h4 {
+  color: #356635;
+}
+
+.bs-callout-primary {
+  background-color: #d6ebf9;
+  border-color: #3071a9;
+}
+.bs-callout-primary h4 {
+  color: #3071a9;
 }
