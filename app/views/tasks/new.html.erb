@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
-      <h1>Add a Task <small>添加一个任务</small>
+      <h1>添加一项任务 <small>添加一个任务</small>
         <div class="pull-right">
-          <a href="<%= tasks_path %>" class="btn btn-primary">
+          <a href="<%= user_tasks_path %>" class="btn btn-primary">
             <span class="glyphicon glyphicon-tasks"></span>&nbsp;返回任务列表  
           </a>
         </div>  
@@ -13,7 +13,7 @@
 </div>
 <div class="row">
   <div class="col-md-7">
-    <%= form_for @task, :html => {:class => 'form-horizontal'} do |f| %>   
+    <%= form_for [@user, Task.new], :html => {:class => 'form-horizontal'} do |f| %>   
       <div class="form-group">
         <label for="inputName" class="col-sm-2 control-label">名称</label>   
         <div class="col-sm-10">

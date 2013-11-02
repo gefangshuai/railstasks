@@ -1,0 +1,32 @@
+<% provide(:title, '用户列表') %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>
+        用户列表 <small>所有已注册的用户列表</small>
+        
+      </h1>  
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <% @users.each do |user| %>
+      <li class="list-group-item">   
+        <a href="<%= user_tasks_path(user) %>"><span class="badge pull-right"><%= user.tasks.size %></span></a>
+        <%= link_to user.username, user %>  
+        <div class="pull-right">
+          <%= link_to '编辑', edit_user_path(user) %>
+          <%= link_to '删除', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= link_to 'New User', new_user_path %>

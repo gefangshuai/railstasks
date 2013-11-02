@@ -1,28 +1,3 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="page-header">
-      <h1>Task List <small>您的所有任务列表</small>
-        <div class="pull-right">
-          <a href="<%= new_task_path %>" class="btn btn-primary">
-            <span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个任务     
-          </a>
-        </div>
-      </h1>  
-    </div>
-  </div>
-  
-  <% if @tasks.size==0 %>    
-    <div class="col-md-12">
-      <p class="text-danger"><strong>暂无记录！</strong></p>
-    </div>
-  <% end %>
+<p id="notice"><%= notice %></p>
 
-  <% @tasks.each do |task| %>
-  <div class="col-md-12">
-    <div class="bs-callout bs-callout-<%= exist_style(task).style %>">        
-      <h4><%= task.title %></h4>
-      <p><%= task.content %></p>   
-    </div>
-  </div>
-  <% end %>
-</div>
+<%= render :partial => 'list', :locals => { :user => @user } %>

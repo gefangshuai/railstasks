@@ -1,14 +1,20 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks =  Task.all.order('created_at DESC')     
+    user_id = params[:user_id]  
+    @user = User.find(user_id)  
+    @tasks =  @user.tasks   
+
   end
   
   def new
+    user_id = params[:user_id]  
+    @user = User.find(user_id)  
     @task = Task.new    
   end
 
   def create
+    user_id = params[:user_id]
     @task = Task.new(task_params)
     @task.style = callout_sample
     if @task.save 

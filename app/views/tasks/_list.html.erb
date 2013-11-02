@@ -1,0 +1,24 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Task List <small><%= user.username %>的所有任务列表</small>
+        <div class="pull-right">   
+          <a href="<%= new_user_task_path %>" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个任务     
+          </a>   
+        </div>
+      </h1>  
+    </div>
+  </div>
+  
+  <% if @user.tasks.size==0 %>    
+    <div class="col-md-12">
+      <p class="text-danger"><strong>暂无记录！</strong></p>
+    </div>
+  <% end %>
+
+  <% @user.tasks.each do |task| %>
+    <%= render :partial => 'tasks/show', :locals => {:task => task} %>
+  <% end %>
+</div>
