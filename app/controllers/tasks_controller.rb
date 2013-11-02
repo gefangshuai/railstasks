@@ -8,14 +8,12 @@ class TasksController < ApplicationController
   end
   
   def new
-    user_id = params[:user_id]  
-    @user = User.find(user_id)  
-    @task = Task.new    
+    @user = User.find(params[:user_id])  
+    @task = @user.tasks.build   
   end
 
   def create
-    user_id = params[:user_id]
-    @task = Task.new(task_params)
+    @task = User.find(params[:user_id]).tasks.new(task_params)
     @task.style = callout_sample
     if @task.save 
       flash['success'] = '任务添加成功！'      
