@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     @task.style = callout_sample
     if @task.save 
       flash['success'] = '任务添加成功！'      
-    redirect_to :action => 'index' # Handle a successful save    
+      redirect_to :action => 'index' # Handle a successful save    
     else
       flash['danger'] = '任务添加失败！' + @task.errors.full_messages.join(', ')  
       render 'new'

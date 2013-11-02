@@ -4,7 +4,8 @@
       <h1>添加一项任务 <small>添加一个任务</small>
         <div class="pull-right">
           <a href="<%= user_tasks_path %>" class="btn btn-primary">
-            <span class="glyphicon glyphicon-tasks"></span>&nbsp;返回任务列表  
+            <span class="glyphicon glyphicon-tasks"></span>
+            返回任务列表  
           </a>
         </div>  
       </h1>  
@@ -13,27 +14,7 @@
 </div>
 <div class="row">
   <div class="col-md-7">
-    <%= form_for [@user, Task.new], :html => {:class => 'form-horizontal'} do |f| %>   
-      <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">名称</label>   
-        <div class="col-sm-10">
-          <%= f.text_field :title ,:class => 'form-control', :id => 'inputName', :placeholder => 'task title' %>     
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputContent" class="col-sm-2 control-label">内容</label>
-        <div class="col-sm-10">
-          <%= f.text_area :content, :class => 'form-control', :rows => '4', :id => 'inputContent', :placeholder => 'task content' %>
-        </div>
-      </div>
-      <div class="form-group">    
-        <div class="col-sm-offset-2 col-sm-10">
-          <%= f.submit "Add a Task", class: "btn btn-primary" %>  
-          &nbsp;&nbsp;
-          <%= button_tag "Reset", type: :reset, class: 'btn btn-danger' %>  
-        </div> 
-      </div>   
-    <% end %>
+    <%= render 'form'%>
   </div>
   <div class="col md-5">
     <p class="text-muted">在这里可以创建一个任务</p>

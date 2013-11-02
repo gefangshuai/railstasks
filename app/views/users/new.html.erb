@@ -1,22 +1,14 @@
+
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
       <h1>
         用户注册 
-        <small>注册独一无二的账号</small>
-        <div class="pull-right">
-          <a href="#" class="btn btn-primary">
-            <span class="glyphicon glyphicon-tasks"></span>
-            返回用户列表
-          </a>
-        </div> 
+        <small>注册独一无二的账号</small>   
       </h1>
-    </div>
-  </div>
-</div>
-<div>
-  
-</div>
-<%= render 'form' %>
+    </div>   
+  </div>    
 
-<%= link_to 'Back', users_path %>
+  <div class="col-md-6"><%= render 'users/form' %></div>
+  <div class="col-md-6">已有账号？<%= link_to '直接登陆吧！', signin_path %>`(*∩_∩*)′</div>
+</div>

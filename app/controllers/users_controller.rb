@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # GET /users/1/edit
+  # GET /users/1/edit    
   def edit
   end
 
@@ -26,15 +26,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      flash['success'] = '用户注册成功！'
+      redirect_to @user
+    else
+      flash['danger'] = '用户注册失败！' + @user.errors.full_messages.join(', ')
+      render action: 'new'
     end
   end
 
@@ -43,11 +40,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to @user }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +53,6 @@ class UsersController < ApplicationController
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
-      format.json { head :no_content }
     end
   end
 
@@ -67,9 +61,8 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:username, :email)
+    # Never trust parameters from the scary internet, only allow the white list through.   
+    def user_params    
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 end

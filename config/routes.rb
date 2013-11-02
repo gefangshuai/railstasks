@@ -1,6 +1,7 @@
 TaskRails::Application.routes.draw do
 
-  match "/signup", to: 'users#new',    via:'get'
+  match "/signup", to: 'users#new',    via: 'get'
+  match '/signin', to: 'login#index',  via: 'get' 
   resources :users do
     resources :tasks  
   end
