@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  before_action :check_if_user_login, :except => [:new, :create]    
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-   
+
+  include LoginHelper
+
   # GET /users
   # GET /users.json
   def index
@@ -15,6 +18,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    flash.clear
     @user = User.new
   end
 
@@ -26,7 +30,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    
     if @user.save
+      if params[:islogin]
+        login_user @user
+      end
       flash['success'] = '用户注册成功！'
       redirect_to @user
     else

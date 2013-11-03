@@ -14,8 +14,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active">
-          <a href=""> 
+        <li>
+          <a href="<%= user_tasks_path(session[:user_id]) %>"> 
             <span class="glyphicon glyphicon-tasks"></span>
             任务列表
           </a> 
@@ -29,12 +29,18 @@
       </ul>  
       
       <ul class="nav navbar-nav navbar-right">   
-        <li>
-          <%= link_to '注册', signup_path %>   
-        </li>
-        <li>
-          <%= link_to '登陆', signin_path %> 
-        </li>
+        <% if session[:user_id] %>
+          <li>
+            <%= link_to '登出', signout_path, :method => 'delete', data: { confirm: '确定退系统吗?' } %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to '注册', signup_path %>   
+          </li>
+          <li>
+              <%= link_to '登陆', signin_path %> 
+          </li>
+        <% end %>
       </ul>
 
       <form class="navbar-form navbar-right">

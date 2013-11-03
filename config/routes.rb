@@ -1,10 +1,13 @@
 TaskRails::Application.routes.draw do
-
-  match "/signup", to: 'users#new',    via: 'get'
-  match '/signin', to: 'login#index',  via: 'get' 
+  resources :login, only: [:new, :create, :destroy]
   resources :users do
     resources :tasks  
   end
+  root 'welcome#index' 
+
+  match "/signup",  to: 'users#new',         via: 'get'
+  match '/signin',  to: 'login#new',         via: 'get'
+  match '/signout', to: 'login#destroy',     via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -19,7 +22,6 @@ TaskRails::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  root 'welcome#index' 
   # Example resource route with options:
   #   resources :products do
   #     member do
