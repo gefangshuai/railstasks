@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def check_if_user_login
 
     if session[:user_id].nil?
+      session[:back_url] = request.fullpath
       redirect_to signin_path
     end
   end

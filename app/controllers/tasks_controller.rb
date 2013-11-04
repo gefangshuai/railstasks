@@ -4,7 +4,6 @@ class TasksController < ApplicationController
     user_id = params[:user_id]  
     @user = User.find(user_id)  
     @tasks =  @user.tasks   
-
   end
   
   def new
@@ -19,7 +18,7 @@ class TasksController < ApplicationController
       flash['success'] = '任务添加成功！'      
       redirect_to :action => 'index' # Handle a successful save    
     else
-      flash['danger'] = '任务添加失败！' + @task.errors.full_messages.join(', ')  
+      flash.now['danger'] = '任务添加失败！' + @task.errors.full_messages.join(', ')  
       render 'new'
     end
   end

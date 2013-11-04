@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       flash['success'] = '用户注册成功！'
       redirect_to @user
     else
-      flash['danger'] = '用户注册失败！' + @user.errors.full_messages.join(', ')
+      flash.now['danger'] = '用户注册失败！' + @user.errors.full_messages.join(', ')
       render action: 'new'
     end
   end

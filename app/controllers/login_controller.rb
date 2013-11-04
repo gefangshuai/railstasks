@@ -12,9 +12,13 @@ class LoginController < ApplicationController
     if user && user.authenticate(params[:login][:password])
       login_user user
       flash[:success] = '登录成功，欢迎回来！'
-      redirect_to root_path
+      if session[:back_url]
+        redirect_to session[:back_url]
+      else
+        redirect_to root_path
+      end
     else
-      flash[:danger] = '登录失败，请确认输入的用户名或密码是否正确！'
+      flash.now[:danger] = '登录失败，请确认输入的用户名或密码是否正确！'
       render 'new'
     end
   end
@@ -22,7 +26,7 @@ class LoginController < ApplicationController
   def destroy
     session.delete(:user_id)
     flash[:success] = '退出成功！'
-    redirect_to signin_path
+    render 'login/new'
   end
 
   private
