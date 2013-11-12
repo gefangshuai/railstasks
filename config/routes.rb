@@ -1,4 +1,6 @@
 TaskRails::Application.routes.draw do
+  resources :projects
+
   resources :login, only: [:new, :create, :destroy]
   resources :users do
     resources :tasks  

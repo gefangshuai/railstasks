@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>项目列表<small>所有项目列表</small>
+        <div class="pull-right">   
+          <a href="<%= new_project_path %>" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>
+            添加新项目
+          </a>   
+        </div>
+      </h1>  
+    </div>
+  </div>
+  <%= render @projects %>
+</div>

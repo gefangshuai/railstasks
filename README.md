@@ -1,28 +1,20 @@
-== README
+# README
+## Model
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### projects（项目） 
+* name：项目名称
+* description：项目描述
 
-Things you may want to cover:
+### tasks（任务）
+* title：任务标题
+* content：任务内容
+* style：显示风格样式
 
-* Ruby version
+### users（用户）
+* username：用户名
+* email：邮箱
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+----------
+ - **Author&nbsp;：gefangshuai**
+ - **Email&nbsp;&nbsp;&nbsp;：gefangshuai@163.com**
+ - **Blog&nbsp;&nbsp;&nbsp;&nbsp;：http://wincn.net**
