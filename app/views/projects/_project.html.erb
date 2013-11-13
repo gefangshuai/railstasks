@@ -4,6 +4,15 @@
     <div class="caption">
       <h3><%= project.name %></h3>
       <p><%= project.description %></p>
+      <strong>参与者</strong>
+      <p>
+        <% unless project.users.length > 0 %>
+          无
+        <% end %>
+        <% project.users.each do |user| %>
+          <p class='text-primary'><%= user.username %></p>
+        <% end %>
+      </p>
       <p>
         <%= link_to '编辑', edit_project_path(project), :class => 'btn btn-primary'%>
         <%= link_to '删除', project, method: :delete, data:{ confirm: '确定删除这个项目吗？' }, :class => 'btn btn-danger' %>

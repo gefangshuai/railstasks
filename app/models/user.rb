@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
   
   # 与Projects项目的关系
   belongs_to :project
+
+
 end

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_users, only: [:new, :edit]
   # GET /projects
   # GET /projects.json
   def index
@@ -15,21 +15,19 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
-    @users = User.all
   end
   # GET /projects/1/edit
   def edit
+    
   end
 
   # POST /projects
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
-    binding.pry
-
     respond_to do |format|
       if @project.save
+        build_users params[:users], @project
         flash[:success] = '项目添加成功！'
         format.html { redirect_to projects_path }
       else
@@ -43,6 +41,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
+        build_users params[:users], @project
         flash[:success] = '项目编辑成功！'
         format.html { redirect_to projects_path }
       else
@@ -70,5 +69,22 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :description)
+    end
+
+    def build_users (user_ids, project)
+      # todo 要优化
+      project.users.each do |u|
+        u.update_attribute(:project, nil)
+      end
+      if user_ids != nil
+        user_ids.each do |user_id|
+          user = User.find(user_id)
+          user.update_attribute(:project, @project)
+        end
+      end
+    end
+
+    def set_users
+      @users = User.all
     end
 end

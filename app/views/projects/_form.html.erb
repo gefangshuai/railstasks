@@ -13,15 +13,17 @@
 </div>
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-            <!-- rails checkbox -->
-            <% @users.each do |user| %>  
-              <%= check_box_tag 'users[]', user.id%>  
-              <%= label_tag user.username %>
-            <% end %>
-        </label>
-      </div>
+      <!-- rails checkbox -->
+      <% @users.each do |user| %>
+        <div class="checkbox">
+          <% if @project.users.include? user %>
+            <%= check_box_tag 'users[]', user.id, true %>  
+          <% else %>
+            <%= check_box_tag 'users[]', user.id%>
+          <% end %>
+          <%= label_tag user.username %>
+        </div>
+      <% end %>
     </div>
   </div>
 <div class="form-group">    

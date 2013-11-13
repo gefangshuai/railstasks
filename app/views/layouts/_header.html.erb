@@ -37,6 +37,9 @@
       <ul class="nav navbar-nav navbar-right">   
         <% if session[:user_id] %>
           <li>
+            <%= link_to User.find(session[:user_id]).username, '' %>   
+          </li>
+          <li>
             <%= link_to '登出', signout_path, :method => 'delete', data: { confirm: '确定退系统吗?' } %>
           </li>
         <% else %>
