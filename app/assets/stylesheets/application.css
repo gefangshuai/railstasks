@@ -11,3 +11,73 @@
  *= require_self
  *= require_tree .
  */
+/* padding */
+.pad10 {
+  padding: 10px;
+}
+.pad10-l {
+  padding-left: 10px;
+}
+.pad10-r {
+  padding-right: 10px;
+}
+.pad10-t {
+  padding-top: 10px;
+}
+.pad10-b {
+  padding-bottom: 10px;
+}
+
+.pad20 {
+  padding: 20px;
+}
+.pad20-l {
+  padding-left: 20px;
+}
+.pad20-r {
+  padding-right: 20px;
+}
+.pad20-t {
+  padding-top: 20px;
+}
+.pad20-b {
+  padding-bottom: 20px;
+}
+
+/* margin */
+.margin10 {
+  margin: 10px;
+}
+.margin10-l {
+  margin-left: 10px;
+}
+.margin10-r {
+  margin-right: 10px;
+}
+.margin10-t {
+  margin-top: 10px;
+}
+.margin10-b {
+  margin-bottom: 10px;
+}
+.margin10-lr {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.margin20 {
+  margin: 20px;
+}
+.margin20-l {
+  margin-left: 20px;
+}
+.margin20-r {
+  margin-right: 20px;
+}
+.margin20-t {
+  margin-top: 20px;
+}
+.margin20-b {
+  margin-bottom: 20px;
+}

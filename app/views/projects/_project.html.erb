@@ -1,10 +1,13 @@
-<div class="col-sm-6 col-md-3">
+<div class="col-sm-6 col-md-3 pad20-b">
   <div class="thumbnail">
     <%= image_tag "project.png" %>
     <div class="caption">
       <h3><%= project.name %></h3>
       <p><%= project.description %></p>
-      <p><a href="#" class="btn btn-primary" role="button">修改</a> <a href="#" class="btn btn-default" role="button">删除</a></p>
+      <p>
+        <%= link_to '编辑', edit_project_path(project), :class => 'btn btn-primary'%>
+        <%= link_to '删除', project, method: :delete, data:{ confirm: '确定删除这个项目吗？' }, :class => 'btn btn-danger' %>
+      </p>
     </div>
   </div>
 </div>
