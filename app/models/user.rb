@@ -4,10 +4,13 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
-  has_many :tasks, dependent: :destroy
 
   has_secure_password    
   validates :password, length: {minimum:6, }
 
+  # 与Tasks任务的关系
+  has_many :tasks, dependent: :destroy
   
+  # 与Projects项目的关系
+  belongs_to :project
 end

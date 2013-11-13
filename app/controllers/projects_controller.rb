@@ -15,8 +15,8 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @users = User.all
   end
-
   # GET /projects/1/edit
   def edit
   end
@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+
+    binding.pry
 
     respond_to do |format|
       if @project.save
