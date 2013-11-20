@@ -7,7 +7,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    respond_to do |format| # <- 这里
+      @users = User.all
+      format.html {  }
+      format.js
+    end
   end
 
   # GET /users/1
