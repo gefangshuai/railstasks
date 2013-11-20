@@ -1,0 +1,37 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title" id="myModalLabel">用户列表</h4>
+    </div>
+    <div class="modal-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><input type="checkbox" data-toggle="check" data-target=".check" ></th>
+            <th>用户名</th>
+            <th>邮箱</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <input type="checkbox" class="check" value="<%= user.id %>">
+              </td>
+              <td>
+                <%= user.username %>
+              </td>
+              <td>
+                <%= user.email %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary">确  定</button>
+    </div>
+  </div>
+</div>
