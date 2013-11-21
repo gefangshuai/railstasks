@@ -10,7 +10,7 @@ Project.delete_all
 User.delete_all
 
 users = User.create([{ 
-    username: 'gefangshuai',
+    username: 'admin',
     password: '123456', 
     password_confirmation: '123456',
     email: 'gefangshuai@163.com'
